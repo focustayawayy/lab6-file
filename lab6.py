@@ -58,7 +58,6 @@ class FileManager:
 
     @logged(FileCorrupted, mode="console")
     def read(self):
-        """Читання файлу."""
         try:
             with open(self.filepath, 'r', encoding='utf-8') as f:
                 return f.read()
@@ -67,7 +66,6 @@ class FileManager:
 
     @logged(FileCorrupted, mode="file")
     def write(self, data: str):
-        """Запис у файл (перезаписує вміст)."""
         try:
             with open(self.filepath, 'w', encoding='utf-8') as f:
                 f.write(data)
@@ -76,10 +74,10 @@ class FileManager:
 
     @logged(FileCorrupted, mode="file")
     def append(self, data: str):
-        """Допис у файл (зберігає попередній вміст)."""
         try:
             with open(self.filepath, 'a', encoding='utf-8') as f:
                 f.write(data)
         except Exception:
             raise FileCorrupted("Помилка допису у файл.")
+
 
