@@ -48,10 +48,6 @@ def logged(exc_type, mode="console"):
 
 class FileManager:
     def __init__(self, filepath: str):
-        """
-        Конструктор класу.
-        Перевіряє існування файлу та коректність розширення (.csv).
-        """
         self.filepath = filepath
 
         if not filepath.endswith('.csv'):
@@ -86,3 +82,4 @@ class FileManager:
                 f.write(data)
         except Exception:
             raise FileCorrupted("Помилка допису у файл.")
+
